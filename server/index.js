@@ -27,7 +27,7 @@ app.use(
     origin: [
       "http://localhost:5173",
       "https://ahmedhasanx3.github.io",
-      "https://ahmedhasanx3.github.io/My-Portfolio",
+      "https://ahmedhasanx3.github.io/Portfolio",
     ],
   })
 );
