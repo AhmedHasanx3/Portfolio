@@ -44,8 +44,8 @@ app.post("/send", async (req, res) => {
   try {
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST, // smtp.gmail.com
-      port: Number(process.env.SMTP_PORT), // 465
-      secure: true,
+      port: Number(process.env.SMTP_PORT), // Should now be 587
+      secure: false, // 🚨 CRITICAL FIX: Use false for port 587 (STARTTLS)
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
