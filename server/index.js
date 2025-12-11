@@ -43,11 +43,16 @@ app.post("/send", async (req, res) => {
 
   try {
     const transporter = nodemailer.createTransport({
-      service: "gmail", // 🚨 CRITICAL FIX: Use the service name
+      host: "smtp.gmail.com", // Explicitly set host
+      port: 465, // Explicitly set port 465
+      secure: true, // Explicitly set secure to true for port 465
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
-      }, // Remove host, port, and secure options when using 'service'
+      }, // 🚨 CRITICAL ADDITION: Increase timeout to handle Render latency
+      connectionTimeout: 20000, // 20 seconds (default is 10s)
+      greetingTimeout: 10000, // 10 seconds
+      socketTimeout: 30000, // 30 seconds
     });
 
     await transporter.sendMail({
