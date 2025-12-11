@@ -25,14 +25,11 @@ const Contact: React.FC<ContactProps> = ({ theme }) => {
     };
 
     try {
-      const response = await fetch(
-        "https://my-portfolio-e0cn.onrender.com/send",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
-        }
-      );
+      const response = await fetch("https://portfolio-o8mt.onrender.com/send", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
 
       const data = await response.json().catch(() => ({}));
 
