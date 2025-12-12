@@ -173,49 +173,59 @@ const Projects: React.FC<ProjectsProps> = ({ theme }) => {
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            className={`max-w-full sm:max-w-3xl w-full rounded-2xl p-5 sm:p-6 ${modalBg}`}
+            // CRITICAL: Ensure the container is relative for absolute children
+            className={`relative max-w-full sm:max-w-3xl w-full rounded-2xl p-5 sm:p-6 ${modalBg}`}
           >
-            <div className="flex flex-col sm:flex-row items-start justify-between gap-4">
-              <div className="flex-1">
-                <h4 className="text-2xl sm:text-3xl font-bold">
-                  {active.title}
-                </h4>
-                <p className="mt-2 text-sm sm:text-base">
-                  {active.modalDescription}
-                </p>
+            {/* 1. ABSOLUTELY POSITIONED X BUTTON (Always Top Right) */}
+            <button
+              onClick={() => setActive(null)}
+              // CRITICAL: absolute top-4 right-4 ensures it sticks to the corner
+              className="absolute top-4 right-4 text-white hover:opacity-70 text-2xl p-2 z-10"
+              aria-label="Close project details"
+            >
+              ✕
+            </button>
 
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {active.tags.map((t) => (
-                    <span
-                      key={t}
-                      className="text-xs sm:text-sm bg-white/10 px-3 py-1 rounded-full"
-                    >
-                      {t}
-                    </span>
-                  ))}
+            {/* 2. MAIN CONTENT WRAPPER: Use padding to avoid content overlapping the X button */}
+            <div className="pt-4 pr-6">
+              {/* The inner flex container no longer includes the button */}
+              <div className="flex flex-col sm:flex-row items-start justify-between gap-4">
+                <div className="flex-1">
+                  <h4 className="text-2xl sm:text-3xl font-bold">
+                    {active.title}
+                  </h4>
+                  <p className="mt-2 text-sm sm:text-base">
+                    {active.modalDescription}
+                  </p>
+
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {active.tags.map((t) => (
+                      <span
+                        key={t}
+                        className="text-xs sm:text-sm bg-white/10 px-3 py-1 rounded-full"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
                 </div>
+
+                {/* OLD BUTTON LOCATION IS REMOVED HERE */}
               </div>
 
-              <button
-                onClick={() => setActive(null)}
-                className="text-white hover:opacity-70 text-xl sm:text-2xl mt-2 sm:mt-0"
-              >
-                ✕
-              </button>
+              {active.modalFeatures && (
+                <div className="mt-5">
+                  <h5 className="font-semibold mb-2 text-sm sm:text-base">
+                    Key Features
+                  </h5>
+                  <ul className="list-disc list-inside space-y-1 text-sm sm:text-base">
+                    {active.modalFeatures.map((f, idx) => (
+                      <li key={idx}>{f}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
-
-            {active.modalFeatures && (
-              <div className="mt-5">
-                <h5 className="font-semibold mb-2 text-sm sm:text-base">
-                  Key Features
-                </h5>
-                <ul className="list-disc list-inside space-y-1 text-sm sm:text-base">
-                  {active.modalFeatures.map((f, idx) => (
-                    <li key={idx}>{f}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
           </motion.div>
         </div>
       )}
