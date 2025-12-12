@@ -101,12 +101,14 @@ const Experience: React.FC<ExperienceProps> = ({ theme }) => {
     >
       <div className="w-full mx-auto">
         <h3
-          className={`text-3xl sm:text-4xl md:text-5xl font-bold mb-6 py-2 sm:text-left bg-clip-text text-transparent ${HeadTag}`}
+          className={`text-3xl sm:text-4xl md:text-5xl font-bold mb-8 sm:text-left bg-clip-text text-transparent ${HeadTag}`}
         >
           Professional Experience
         </h3>
 
-        <div className={`relative pl-6 sm:pl-8 border-l-2 ${poleline}`}>
+        <div
+          className={`relative ml-4 sm:ml-6 pl-4 sm:pl-6 border-l-2 ${poleline}`}
+        >
           {experiences.map((exp, idx) => (
             <motion.div
               key={exp.title}
@@ -115,10 +117,11 @@ const Experience: React.FC<ExperienceProps> = ({ theme }) => {
               transition={{ delay: idx * 0.06 }}
               className="mb-8 sm:mb-10 relative"
             >
+              {/* Timeline Dot */}
               <span
-                className={`absolute left-0 top-8 ${polecircle} transform -translate-x-1/2`}
+                className={`absolute -left-6 sm:-left-8.5 md:-left-8.5 lg:-left-8 top-8 ${polecircle}`}
               >
-                <FaCircle size={10} className="sm:w-4 sm:h-4" />
+                <FaCircle size={12} className="sm:w-4 sm:h-4" />
               </span>
 
               <div

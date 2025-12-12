@@ -1,4 +1,5 @@
 import React from "react";
+// import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 interface FooterProps {
   theme: "light" | "dark";
@@ -37,6 +38,14 @@ const Footer: React.FC<FooterProps> = ({ theme }) => {
           <a href="#" className="text-sm sm:text-base hover:underline">
             GitHub
           </a>
+          <FaGithub className="w-10 h-10 bg-gray-400" />
+          <FaLinkedin className="w-10 h-10 text-blue-800 bg-amber-50" />
+          <div className="flex items-center justify-center w-10 h-10 bg-gray-900 rounded-lg transition-colors duration-300 hover:bg-gray-800">
+            <FaGithub className="w-6 h-6 text-white" />
+          </div>
+          <div className="flex items-center justify-center w-10 h-10 bg-blue-800 rounded-lg transition-colors duration-300 hover:bg-blue-700">
+            <FaLinkedin className="w-6 h-6 text-white" />
+          </div>
           <a href="#" className="text-sm sm:text-base hover:underline">
             LinkedIn
           </a>

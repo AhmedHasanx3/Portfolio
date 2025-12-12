@@ -17,17 +17,17 @@ const CvPreview: React.FC<CvPreviewProps> = ({ theme }) => {
       ? "backdrop-blur-xl bg-white/5 border border-gray-700/20 text-gray-200"
       : "backdrop-blur-xl bg-white/20 border border-gray-300/20 text-gray-900";
 
-  const textColor = theme === "dark" ? "text-gray-400" : "text-gray-900";
+  const textColor = theme === "dark" ? "text-gray-400" : "text-gray-950/80";
 
   const HoverBtn =
     theme === "dark"
-      ? "ring-white/20 hover:bg-linear-to-r from-green-400 to-cyan-400"
-      : "ring-gray-400 hover:ring-transparent hover:bg-linear-to-r from-purple-400 to-red-400 ";
+      ? "ring-white/20 hover:bg-linear-to-r from-green-400 to-cyan-400 hover:text-gray-900"
+      : "ring-gray-200/60 hover:ring-transparent hover:bg-linear-to-r from-purple-400 to-red-400 hover:text-gray-100";
 
   const DownloadBtn =
     theme === "dark"
-      ? "bg-linear-to-r from-green-400 to-cyan-400"
-      : "bg-linear-to-r from-purple-400 to-red-400";
+      ? "bg-linear-to-r from-green-400 to-cyan-400 text-gray-950"
+      : "bg-linear-to-r from-purple-400 to-red-400 text-gray-100";
 
   return (
     <section className="relative scroll-mt-24 px-6 sm:px-10 md:px-16 lg:px-20 py-20 flex flex-col ">
@@ -61,7 +61,7 @@ const CvPreview: React.FC<CvPreviewProps> = ({ theme }) => {
               <a
                 href={MyCV}
                 download
-                className={`px-5 py-3 rounded-lg ${DownloadBtn} text-gray-900 font-semibold shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300`}
+                className={`px-5 py-3 rounded-lg ${DownloadBtn} font-semibold shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300`}
               >
                 Download CV
               </a>
@@ -70,7 +70,7 @@ const CvPreview: React.FC<CvPreviewProps> = ({ theme }) => {
                 href={MyCV}
                 target="_blank"
                 rel="noreferrer"
-                className={`px-5 py-3 rounded-lg ring ${HoverBtn} ${textColor} hover:text-gray-900 font-semibold transition-colors duration-300 hover:-translate-y-1`}
+                className={`px-5 py-3 rounded-lg ring ${HoverBtn} ${textColor} font-semibold transition-all duration-500 ease-out hover:-translate-y-1`}
               >
                 Preview
               </a>

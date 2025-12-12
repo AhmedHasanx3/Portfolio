@@ -156,7 +156,7 @@ const Projects: React.FC<ProjectsProps> = ({ theme }) => {
                   className={`px-3 py-2 rounded-lg border text-sm sm:text-base ${
                     theme === "dark"
                       ? "border-gray-400/20 text-gray-200/80"
-                      : "border-black/20 text-gray-700"
+                      : "border-gray-800/40 text-gray-800/80"
                   }`}
                 >
                   Details
@@ -176,11 +176,13 @@ const Projects: React.FC<ProjectsProps> = ({ theme }) => {
             // CRITICAL: Ensure the container is relative for absolute children
             className={`relative max-w-full sm:max-w-3xl w-full rounded-2xl p-5 sm:p-6 ${modalBg}`}
           >
-            {/* 1. ABSOLUTELY POSITIONED X BUTTON (Always Top Right) */}
+            {/* 1. ABSOLUTELY POSITIONED X BUTTON (Now fully responsive) */}
             <button
               onClick={() => setActive(null)}
-              // CRITICAL: absolute top-4 right-4 ensures it sticks to the corner
-              className="absolute top-4 right-4 text-white hover:opacity-70 text-2xl p-2 z-10"
+              className="absolute 
+            top-8 right-4 text-xl p-1 
+            sm:top-4 sm:right-4 sm:text-2xl sm:p-2 
+            text-white hover:opacity-70 z-10 cursor-pointer"
               aria-label="Close project details"
             >
               ✕
@@ -209,8 +211,6 @@ const Projects: React.FC<ProjectsProps> = ({ theme }) => {
                     ))}
                   </div>
                 </div>
-
-                {/* OLD BUTTON LOCATION IS REMOVED HERE */}
               </div>
 
               {active.modalFeatures && (

@@ -69,10 +69,10 @@ const Skills: React.FC<SkillsProps> = ({ theme }) => {
 
   const cardBg =
     theme === "dark"
-      ? "bg-white/4 border-gray-700/10"
+      ? "bg-white/5 border-gray-700/10"
       : "bg-white/20 border-gray-200/20";
 
-  const textColor = theme === "dark" ? "text-gray-400" : "text-gray-700";
+  const textColor = theme === "dark" ? "text-gray-400" : "text-gray-900/80";
 
   return (
     <section

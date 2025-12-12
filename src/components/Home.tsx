@@ -30,13 +30,13 @@ const Home: React.FC<HomeProps> = ({ theme }) => {
 
   const btnText =
     theme === "dark"
-      ? "text-gray-200 hover:text-gray-900"
-      : "text-gray-800 hover:text-gray-200";
+      ? "text-gray-200 hover:text-gray-900 font-semibold"
+      : "text-gray-900 hover:text-gray-200 font-semibold";
 
   const hoverBg =
     theme === "dark"
-      ? "hover:bg-linear-to-r from-green-400 to-cyan-400 hover:ring-transparent hover:-translate-y-1"
-      : "hover:bg-linear-to-r from-purple-400 to-red-400 hover:ring-transparent hover:-translate-y-1";
+      ? "hover:bg-linear-to-r from-green-400 to-cyan-400 hover:ring-transparent hover:-translate-y-1 shadow-gray-400/10"
+      : "hover:bg-linear-to-r from-purple-400 to-red-400 hover:ring-transparent hover:-translate-y-1 shadow-gray-800/40";
 
   return (
     <section
@@ -96,7 +96,7 @@ const Home: React.FC<HomeProps> = ({ theme }) => {
 
         {/* Subtitle */}
         <h2 className="text-2xl md:text-3xl font-semibold text-gray-300">
-          Frontend Developer & UX Enthusiast
+          Web Developer & UX Enthusiast
         </h2>
 
         {/* Paragraphs */}
@@ -115,7 +115,7 @@ const Home: React.FC<HomeProps> = ({ theme }) => {
         <div className="flex flex-wrap gap-4 mt-6">
           <a
             href="#projects"
-            className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${btnText} ${hoverBg}`}
+            className={`px-6 py-3 shadow-md hover:shadow-xl rounded-xl transition-all duration-300 ${btnText} ${hoverBg}`}
           >
             View Projects
           </a>
@@ -130,7 +130,7 @@ const Home: React.FC<HomeProps> = ({ theme }) => {
 
           <a
             href="#contact"
-            className={`px-6 py-3 rounded-xl font-semibold transition-all duration-300 ${btnText} ${hoverBg}`}
+            className={`px-6 py-3 shadow-md hover:shadow-xl rounded-xl transition-all duration-300 ${btnText} ${hoverBg}`}
           >
             Connect with me
           </a>

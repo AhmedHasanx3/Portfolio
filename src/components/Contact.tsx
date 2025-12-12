@@ -61,16 +61,22 @@ const Contact: React.FC<ContactProps> = ({ theme }) => {
     }
   };
 
+  const darkShadow = "shadow-lg shadow-cyan-400/20";
+  const lightShadow = "shadow-lg shadow-pink-500/30";
   const HeadTag =
     theme === "dark"
       ? "bg-linear-to-r from-green-400 to-purple-500"
       : "bg-linear-to-r from-pink-500 to-purple-600";
+  const submitShadow = theme === "dark" ? darkShadow : lightShadow;
   const cardBg =
     theme === "dark"
       ? "bg-gray-900/20 border-white/20 text-gray-200"
       : "bg-white/10 border-white/30 text-gray-900";
-  const textColor = theme === "dark" ? "text-gray-400" : "text-gray-900/90";
-  const inputBorder = theme === "dark" ? "border-white/30" : "border-white/20";
+  const textColor = theme === "dark" ? "text-gray-400" : "text-gray-950/80";
+  const inputBorder =
+    theme === "dark"
+      ? "border-white/30 focus:border-none focus:ring-green-400"
+      : "border-white/20 focus:border-none focus:ring-purple-800/40";
   const placeholderColor =
     theme === "dark" ? "placeholder-gray-400" : "placeholder-white/60";
   const whatsappBg =
@@ -167,7 +173,7 @@ const Contact: React.FC<ContactProps> = ({ theme }) => {
               name="name"
               placeholder="Your Name"
               autoComplete="off"
-              className={`p-4 rounded-xl bg-transparent border ${inputBorder} ${textColor} ${placeholderColor} text-[15px] tracking-wide focus:outline-none focus:ring-2 focus:ring-green-400 transition-all`}
+              className={`p-4 rounded-xl shadow-inner bg-transparent border ${inputBorder} ${textColor} ${placeholderColor} text-[15px] tracking-wide focus:outline-none focus:ring-2 transition-all duration-300`}
               required
             />
 
@@ -176,7 +182,7 @@ const Contact: React.FC<ContactProps> = ({ theme }) => {
               type="email"
               placeholder="Your Email"
               autoComplete="off"
-              className={`p-4 rounded-xl bg-transparent border ${inputBorder} ${textColor} ${placeholderColor} text-[15px] tracking-wide focus:outline-none focus:ring-2 focus:ring-indigo-400 transition-all`}
+              className={`p-4 rounded-xl shadow-inner bg-transparent border ${inputBorder} ${textColor} ${placeholderColor} text-[15px] tracking-wide focus:outline-none focus:ring-2 transition-all duration-300`}
               required
             />
 
@@ -184,7 +190,7 @@ const Contact: React.FC<ContactProps> = ({ theme }) => {
               name="message"
               placeholder="Your Message"
               autoComplete="off"
-              className={`p-4 rounded-xl bg-transparent border ${inputBorder} ${textColor} ${placeholderColor} min-h-40 text-[15px] tracking-wide focus:outline-none focus:ring-2 focus:ring-cyan-400 transition-all`}
+              className={`p-4 rounded-xl shadow-inner bg-transparent border ${inputBorder} ${textColor} ${placeholderColor} text-[15px] tracking-wide focus:outline-none focus:ring-2 transition-all duration-300`}
               required
             />
 
@@ -195,9 +201,39 @@ const Contact: React.FC<ContactProps> = ({ theme }) => {
             <button
               type="submit"
               disabled={loading}
-              className={`py-3.5 rounded-xl ${submitBtn} text-black font-semibold shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:scale-[0.97] transition-all`}
+              // NEW: Increased base shadow size but reduced color opacity for subtlety, removed hover shadow.
+              className={`py-3.5 rounded-xl ${submitBtn} ${submitShadow} text-gray-200 font-semibold 
+    shadow-md shadow-cyan-400/20 hover:-translate-y-0.5 active:scale-[0.97] 
+    transition-all disabled:opacity-50 disabled:cursor-not-allowed`}
             >
-              {loading ? "Sending..." : "Send Message"}
+              {/* Add a spinning icon for loading */}
+              {loading ? (
+                <div className="flex items-center justify-center">
+                  <svg
+                    className="animate-spin -ml-1 mr-3 h-5 w-5"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    ></circle>
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                    ></path>
+                  </svg>
+                  Sending...
+                </div>
+              ) : (
+                "Send Message"
+              )}
             </button>
           </form>
         </motion.div>

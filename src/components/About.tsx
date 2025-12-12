@@ -50,92 +50,11 @@ const About: React.FC<AboutProps> = ({ theme }) => {
         practices to push the boundaries of modern web development.
       </motion.p>
 
-      {/* <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1, delay: 0.5 }}
-        className="w-full grid grid-cols-1 md:grid-cols-2 gap-10 mb-12"
-      >
-        <div>
-          <h3
-            className={`text-xl sm:text-2xl md:text-3xl font-bold mb-3 bg-clip-text text-transparent ${HeadTag}`}
-          >
-            My Approach
-          </h3>
-          <p
-            className={`text-base sm:text-lg md:text-xl ${textColor} leading-relaxed`}
-          >
-            I design experiences that are intuitive, responsive, and visually
-            appealing. By blending clean design with smooth functionality, I
-            ensure that users can interact naturally with any product. I focus
-            on accessibility, performance, and scalability in every project.
-          </p>
-        </div>
-
-        <div>
-          <h3
-            className={`text-xl sm:text-2xl md:text-3xl font-bold mb-3 bg-clip-text text-transparent ${HeadTag}`}
-          >
-            What Drives Me
-          </h3>
-          <p
-            className={`text-base sm:text-lg md:text-xl ${textColor} leading-relaxed`}
-          >
-            Crafting interfaces that people enjoy using is my passion. I aim to
-            solve real-world problems with elegant solutions, delivering
-            products that delight users while meeting business objectives. Every
-            project is an opportunity to innovate and push creativity forward.
-          </p>
-        </div>
-      </motion.div>
-
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1, delay: 0.65 }}
-        className="w-full grid grid-cols-1 md:grid-cols-2 gap-10"
-      >
-        <div>
-          <h3
-            className={`text-xl sm:text-2xl md:text-3xl font-bold mb-3 bg-clip-text text-transparent ${HeadTag}`}
-          >
-            Core Values
-          </h3>
-          <p
-            className={`text-base sm:text-lg md:text-xl ${textColor} leading-relaxed`}
-          >
-            I design with empathy, prioritizing the user's perspective in every
-            decision. I focus on building for performance, delivering efficient,
-            maintainable, and scalable solutions. Accessibility is always a
-            priority, ensuring digital experiences are inclusive for everyone. I
-            embrace continuous learning, staying updated with innovations and
-            adapting to emerging technologies.
-          </p>
-        </div>
-
-        <div>
-          <h3
-            className={`text-xl sm:text-2xl md:text-3xl font-bold mb-3 bg-clip-text text-transparent ${HeadTag}`}
-          >
-            Experience Philosophy
-          </h3>
-          <p
-            className={`text-base sm:text-lg md:text-xl ${textColor} leading-relaxed`}
-          >
-            I believe every interaction matters. Users should feel empowered,
-            informed, and delighted when engaging with a product. My goal is to
-            remove friction, clarify flows, and create interfaces that feel
-            natural. Through thoughtful design, technical precision, and
-            iterative improvement, I deliver digital experiences that exceed
-            expectations.
-          </p>
-        </div>
-      </motion.div> */}
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1, delay: 0.5 }}
-        className="w-full grid grid-cols-1 md:grid-cols-2 gap-10"
+        className="w-full grid grid-cols-1 md:grid-cols-2 gap-10 cursor-default"
       >
         {/* Card 1 */}
         <div className={`p-6 rounded-xl ${cardBg} shadow-md`}>
